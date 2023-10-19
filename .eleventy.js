@@ -1,8 +1,28 @@
 const { DateTime } = require("luxon");
+const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 const navigationPlugin = require("@11ty/eleventy-navigation");
 const rssPlugin = require("@11ty/eleventy-plugin-rss");
-
+const isDev = process.env.ELEVENTY_ENV === "development";
 module.exports = function (eleventyConfig) {
+  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+    // The base URL: defaults to Path Prefix
+    baseHref: isDev ? "/" : "/stimulus/",
+
+    // But you could use a full URL here too:
+    // baseHref: "http://example.com/"
+
+    // Comma separated list of output file extensions to apply
+    // our transform to. Use `false` to opt-out of the transform.
+    extensions: "html",
+
+    // Rename the filters
+    filters: {
+      base: "htmlBaseUrl",
+      html: "transformWithHtmlBase",
+      pathPrefix: "addPathPrefixToUrl",
+    },
+  });
+
   function filterTagList(tags) {
     return (tags || []).filter((tag) => ["all", "nav"].indexOf(tag) === -1);
   }
