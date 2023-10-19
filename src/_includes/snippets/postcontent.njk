@@ -12,14 +12,9 @@
           <p>Published
             <time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time>
           </p>
-          {%- for tag in tags | filterTagList -%}
-            {%- set tagUrl %}/tags/{{ tag | slug }}/{% endset -%}
-            <a href="{{ tagUrl | url }}" class="btn btn-outline-dark btn-sm me-2">{{ tag }}</a>
-          {%- endfor %}
-
         {% endblock %}
       </header>
-      <p class="lead">
+      <p class="lead"> 
         {{ summary }}
       </p>
       {{ content | safe }}

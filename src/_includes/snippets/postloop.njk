@@ -6,12 +6,6 @@
         <p>Published
           <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
         </p>
-        <p>
-        {% for tag in post.data.tags | filterTagList %}
-          {% set tagUrl %}/tags/{{ tag | slug }}/{% endset %}
-          <a href="{{ tagUrl | url }}" class="btn btn-outline-dark btn-sm me-2">{{ tag }}</a>
-        {% endfor %}
-      </p>
         <p>{{ post.data.summary }}</p>
         <a href="{{ post.url | url }}" class="link-fancy">Read more...</a>
       </div>

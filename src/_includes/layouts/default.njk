@@ -9,14 +9,23 @@
 
     {% include 'snippets/navbar.njk' %}
 
-    <main class="container py-vh-5">
+    <main class="container">
       <div class="row d-flex justify-content-center">
         <div class="col-12 col-lg-10 col-xl-8">
           {% include 'snippets/maincontent.njk' %}
         </div>
       </div>
     </main>
-
+<div class="container py-vh-4 pt-0">
+      <div class="row d-flex justify-content-between">
+        <div class="col-12 col-md-7 border-top">
+          {{ content | safe }}
+        </div>
+        <div class="col-12 col-md-4 border-top p-0 pt-5">
+          {% include 'snippets/blogsidebar.njk' %}
+        </div>
+      </div>
+    </div>
     <footer class="container">
       {% include 'snippets/footer.njk' %}
     </footer>
