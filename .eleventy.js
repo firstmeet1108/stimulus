@@ -1,86 +1,84 @@
-const { DateTime } = require("luxon");
-const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
-const navigationPlugin = require("@11ty/eleventy-navigation");
-const rssPlugin = require("@11ty/eleventy-plugin-rss");
-const isDev = process.env.ELEVENTY_ENV === "development";
+const { DateTime } = require('luxon')
+const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
+// const navigationPlugin = require('@11ty/eleventy-navigation')
+// const rssPlugin = require('@11ty/eleventy-plugin-rss')
+const isDev = process.env.ELEVENTY_ENV === 'development'
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
     // The base URL: defaults to Path Prefix
-    baseHref: isDev ? "/" : "/stimulus/",
+    baseHref: isDev ? '/' : '/stimulus/',
 
     // But you could use a full URL here too:
     // baseHref: "http://example.com/"
 
     // Comma separated list of output file extensions to apply
     // our transform to. Use `false` to opt-out of the transform.
-    extensions: "html",
+    extensions: 'html',
 
     // Rename the filters
     filters: {
-      base: "htmlBaseUrl",
-      html: "transformWithHtmlBase",
-      pathPrefix: "addPathPrefixToUrl",
-    },
-  });
+      base: 'htmlBaseUrl',
 
-  function filterTagList(tags) {
-    return (tags || []).filter((tag) => ["all", "nav"].indexOf(tag) === -1);
-  }
-  eleventyConfig.setDataDeepMerge(true);
+      html: 'transformWithHtmlBase',
+      pathPrefix: 'addPathPrefixToUrl',
+    },
+  })
+
+  eleventyConfig.setDataDeepMerge(true)
 
   function filterTagList(tags) {
     return (tags || []).filter(
-      (tag) => ["all", "nav", "post", "posts"].indexOf(tag) === -1
-    );
+      (tag) => ['all', 'nav', 'post', 'posts'].indexOf(tag) === -1,
+    )
   }
 
-  eleventyConfig.addFilter("filterTagList", filterTagList);
+  eleventyConfig.addFilter('filterTagList', filterTagList)
 
-  eleventyConfig.addCollection("tagList", (collection) => {
-    const tagsObject = {};
+  eleventyConfig.addCollection('tagList', (collection) => {
+    const tagsObject = {}
     collection.getAll().forEach((item) => {
-      if (!item.data.tags) return;
+      if (!item.data.tags) return
       item.data.tags
-        .filter((tag) => !["post", "all"].includes(tag))
+        .filter((tag) => !['post', 'all'].includes(tag))
         .forEach((tag) => {
-          if (typeof tagsObject[tag] === "undefined") {
-            tagsObject[tag] = 1;
+          if (typeof tagsObject[tag] === 'undefined') {
+            tagsObject[tag] = 1
           } else {
-            tagsObject[tag] += 1;
+            tagsObject[tag] += 1
           }
-        });
-    });
+        })
+    })
 
-    const tagList = [];
+    const tagList = []
     Object.keys(tagsObject).forEach((tag) => {
-      tagList.push({ tagName: tag, tagCount: tagsObject[tag] });
-    });
-    return tagList.sort((a, b) => b.tagCount - a.tagCount);
-  });
+      tagList.push({ tagName: tag, tagCount: tagsObject[tag] })
+    })
+    return tagList.sort((a, b) => b.tagCount - a.tagCount)
+  })
 
   // Add a filter using the Config API
-  eleventyConfig.addWatchTarget("./src/scss/");
+  eleventyConfig.addWatchTarget('./src/scss/')
   eleventyConfig.setBrowserSyncConfig({
     reloadDelay: 400,
-  });
+  })
 
-  eleventyConfig.addFilter("readableDate", (dateObj) => {
+  eleventyConfig.addFilter('readableDate', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {
-      zone: "utc",
-    }).toFormat("dd LLL yyyy");
-  });
+      zone: 'utc',
+    }).toFormat('dd LLL yyyy')
+  })
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
-  eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+  eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {
-      zone: "utc",
-    }).toFormat("yyyy-LL-dd");
-  });
-  eleventyConfig.addPassthroughCopy("src/js/*.js");
+      zone: 'utc',
+    }).toFormat('yyyy-LL-dd')
+  })
+  eleventyConfig.addPassthroughCopy('src/js/*.js')
   return {
     dir: {
-      input: "src",
-      output: "dev",
+      input: 'src',
+      output: 'dev',
     },
-  };
-};
+  }
+}
