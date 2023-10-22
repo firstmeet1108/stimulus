@@ -2,7 +2,7 @@ const { execSync } = require('child_process')
 // const fs = require('fs')
 // const gitDiffParser = require('gitdiff-parser')
 
-let diffstr = execSync('git diff ea3438b4ec784cda5b08099762396fcf38a5d97e e6bbdb35d35ebb6676d45c5d0b9e186ae586600e', {
+let diffstr = execSync('git diff ac94753c508262a43c3bd58d88c76aa65525b613 339472c12642c3e3c4f92cf02039fe62632eb085', {
   maxBuffer: 1024 ** 6,
 })
 console.log(diffstr.toString())
