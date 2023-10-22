@@ -1,12 +1,13 @@
 const { DateTime } = require('luxon')
 const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
-// const navigationPlugin = require('@11ty/eleventy-navigation')
-// const rssPlugin = require('@11ty/eleventy-plugin-rss')
 const isDev = process.env.ELEVENTY_ENV === 'development'
+const navigationPlugin = require('@11ty/eleventy-navigation')
+const rssPlugin = require('@11ty/eleventy-plugin-rss')
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
     // The base URL: defaults to Path Prefix
-    baseHref: isDev ? '/' : '/stimulus/',
+    baseHref: isDev ? '/stimulus/' : '/',
 
     // But you could use a full URL here too:
     // baseHref: "http://example.com/"
@@ -18,12 +19,13 @@ module.exports = function (eleventyConfig) {
     // Rename the filters
     filters: {
       base: 'htmlBaseUrl',
-
       html: 'transformWithHtmlBase',
       pathPrefix: 'addPathPrefixToUrl',
     },
   })
-
+  function filterTagList(tags) {
+    return (tags || []).filter((tag) => ['all', 'nav'].indexOf(tag) === -1)
+  }
   eleventyConfig.setDataDeepMerge(true)
 
   function filterTagList(tags) {
@@ -74,7 +76,6 @@ module.exports = function (eleventyConfig) {
       zone: 'utc',
     }).toFormat('yyyy-LL-dd')
   })
-  eleventyConfig.addPassthroughCopy('src/js/*.js')
   return {
     dir: {
       input: 'src',

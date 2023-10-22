@@ -7,3 +7,4 @@ let diffstr = execSync('git diff ac94753c508262a43c3bd58d88c76aa65525b613 933b52
 }).toString()
 let res = gitDiffParser(diffstr)
 console.log(res[1].hunks)
+

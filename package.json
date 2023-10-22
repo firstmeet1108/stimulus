@@ -9,7 +9,19 @@
   },
   "main": "index.html",
   "scripts": {
-    "build": "npx @11ty/eleventy"
+    "build": "npm run clean && npm run clean-prod  && npx eleventy && gulp sass && gulp dist-assets && gulp minify-css && gulp prod-copy && gulp inject-min-css && gulp purgecss && gulp minify-html",
+    "build-dev": "eleventy && gulp dist-assets && gulp sass",
+    "11ty": "eleventy && gulp inject-css",
+    "sync": "gulp browser-sync",
+    "watch-dev": "npm run build-dev && npm run sync",
+    "postinstall": "gulp copy-assets",
+    "scss": "node-sass --output-style compressed -o dev/css/ src/scss/theme.scss",
+    "watch:all": "onchange 'src/' -- npm run build-dev",
+    "serve": "eleventy --serve",
+    "watch": "npm run clean && npm run build-dev && run-p sync watch:all",
+    "clean": "gulp clean-dev",
+    "clean-prod": "gulp clean-public",
+    "test": "npx @11ty/eleventy --serve"
   },
   "dependencies": {
     "@11ty/eleventy": "2.0.1",
