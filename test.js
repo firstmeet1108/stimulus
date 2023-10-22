@@ -2,6 +2,7 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const { promisify } = require('util')
 const writeFile = promisify(fs.writeFile)
+const gitDiffParser = require('gitdiff-parser')
 
 const HEAD = require('./head')
 let newCommit = ''
@@ -29,8 +30,8 @@ try {
   // 对指定文件进行diff对比
   diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`).toString()
   console.log('获取diff对比文本')
-
-  console.log(diffstr)
+  let res = gitDiffParser(diffstr)
+  console.log(res)
 
   // 切换分支至main
   execSync('git checkout main')
