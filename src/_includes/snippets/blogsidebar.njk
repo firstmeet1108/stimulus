@@ -1,11 +1,15 @@
 
 {% macro Sidebar(data) %}
-  <div class="p-4">
-    <h3>Sidebar</h3>
-  </div>
-  <nav class="nav flex-column">
-    {%- for post in data %}
-      <a class="nav-link ms-4" href="{{ post.url | url }}">{{ post.data.title}}</a>
+  <nav class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+    <a class="navbar-brand" href="#"><h2>目录</h2></a>
+    {%- for partname, partdata in data %}
+      <a class="navbar-brand" href="{{ partdata[0].url | url }}"><h5>{{ partdata[0].data.bigtitle }}</h5></a>
+      <nav class="nav nav-pills flex-column">
+        {%- for post in partdata %}
+          <a class="nav-link ms-3 my-1" href="{{ post.url | url }}">{{ post.data.title}}</a>
+        {% endfor %}
+      </nav>
     {% endfor %}
+    
   </nav>      
 {% endmacro %}

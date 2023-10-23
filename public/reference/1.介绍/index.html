@@ -10,10 +10,9 @@
   <meta name="author" content="Firstmeet">
   <meta name="generator" content="Eleventy v2.0.1">
   <meta name="HandheldFriendly" content="true"/>
-  <title>Stimulus使用说明</title>
-  <!-- build:css -->
-  <link rel="stylesheet" href="/css/theme.css">
-   <!-- endbuild -->
+  <title>1.介绍</title>
+  <link rel="stylesheet" href="/css/theme.min.css">
+
    <style>
    /* inter-300 - latin */
    @font-face {
@@ -74,15 +73,17 @@
         </li>
 
         <li class="nav-item me-1">
-        <a class="nav-link" href="/blog">手册</a>
+          <a class="nav-link" href="/handbook/1.介绍/">手册</a>
         </li>
 
         <li class="nav-item me-1">
-          <a class="nav-link" href="/default">集成</a>
+          <a class="nav-link" href="/reference/1.介绍/">拓展</a>
         </li>
+
         <li class="nav-item me-1">
           <a class="nav-link" href="/comment">论坛</a>
         </li>
+        
       </ul>
     </div>
   </div>
@@ -90,59 +91,70 @@
 
 
     <main class="container">
-      <div class="row d-flex justify-content-center">
-        <div class="col-12 col-xl-8">
-          <div class="px-5 text-center">
-          <header>
-    <h1>Stimulus使用说明</h1>
-</header>
-
-        </div>
-      </div>
-      </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-12">
+              <div class="text-center ">
+                <header >
+                  <h1 class="display-3">拓展</h1>
+                </header>
+            </div>
+          </div>
     </main>
 
-    <div class="container py-vh-4 pt-0">
+    <main class="container">
       <div class="row d-flex justify-content-between">
-        <div class="col-12 col-md-7 border-top">
-          <div class="row d-flex justify-content-center">
-  <div class="col-12">
-      <div class="py-5 border-bottom">
-        <a href="/posts/1.介绍/"><h2 class="display-4">1.介绍</h2></a>
-        <p>Published
-          <time datetime="2023-10-22">22 Oct 2023</time>
-        </p>
-        <p>Stimulus是一个野心适度的JavaScript框架。与其他前端框架不同，Stimulus旨在通过使用简单的注释将JavaScript对象连接到页面上的元素，从而增强静态或服务器渲染的HTML(即“你已经拥有的HTML”)。</p>
-        <a href="/posts/1.介绍/" class="link-fancy">Read more...</a>
-      </div>
-    
-  </div>
-</div>
-
-<div class="row d-flex justify-content-center mt-3">
-  <div class="col-12">
-    <div class="row d-flex justify-content-between">
-      <div class="col">
-         </div> <div class="col text-end"> 
-      </div>
-    </div>
-  </div>
-</div>
+        <div class="col-12 col-md-7">
+          <header class="py-vh-2">
+              <h1>1.介绍</h1>
+          </header>
+          <h2>关于Stimulus</h2>
+<p>Stimulus是一个野心适度的JavaScript框架。与其他前端框架不同，Stimulus旨在通过使用简单的注释将JavaScript对象连接到页面上的元素，从而增强静态或服务器渲染的HTML(即“你已经拥有的HTML”)。</p>
+<p>这些JavaScript对象被称为控制器，Stimulus会持续监视页面，等待HTML数据控制器属性的出现。对于每个属性，Stimulus查看属性的值以找到相应的控制器类，创建该类的新实例，并将其连接到元素。</p>
+<p>你可以这样想:就像class属性是连接HTML和CSS的桥梁一样，Stimulus的data-controller属性也是连接HTML和JavaScript的桥梁。</p>
+<p>除了控制器，其他三个主要的Stimulus概念是:</p>
+<ul>
+<li>actions，它使用data-action属性将控制器方法连接到DOM事件</li>
+<li>targets，它定位控制器中重要的元素</li>
+<li>values，它读取、写入和观察控制器元素上的数据属性</li>
+</ul>
+<p>Stimulus对数据属性的使用有助于将内容与行为分开，就像CSS将内容与表示分开一样。此外，Stimulus的约定自然鼓励您按名称对相关代码进行分组。</p>
+<p>接着，Stimulus帮助您构建小型的、可重用的控制器，为您提供足够的结构，使您的代码不至于沦为“JavaScript汤”。</p>
+<h2>关于本手册</h2>
+<p>本手册将通过演示如何编写几个功能齐全的控制器来指导您完成Stimulus的核心概念。每一章都建立在前一章的基础上;从头到尾，您将学习如何:</p>
+<ul>
+<li>在文本字段中打印致姓名的问候语</li>
+<li>当单击按钮时，将文本从文本字段复制到系统剪贴板</li>
+<li>浏览包含多个幻灯片的幻灯片放映</li>
+<li>自动从服务器获取HTML到页面上的元素</li>
+<li>在您自己的应用程序中设置刺激物</li>
+</ul>
+<p>一旦你完成了这里的练习，你将会发现参考文档有助于你·理解Stimulus API的技术细节。</p>
+<p>让我们开始吧!</p>
 
         </div>
-        <div class="col-12 col-md-4 border-top p-0 pt-5">
+        <div class="col-12 col-md-4">
           
-  <div class="p-4">
-    <h3>Sidebar</h3>
-  </div>
-  <nav class="nav flex-column">
-      <a class="nav-link ms-4" href="/posts/1.介绍/">1.介绍</a>
+  <nav class="navbar navbar-light bg-light flex-column align-items-stretch p-3">
+    <a class="navbar-brand" href="#"><h2>目录</h2></a>
+      <a class="navbar-brand" href="/handbook/1.介绍/"><h5>手册</h5></a>
+      <nav class="nav nav-pills flex-column">
+          <a class="nav-link ms-3 my-1" href="/handbook/1.介绍/">1.介绍</a>
+        
+      </nav>
+    
+      <a class="navbar-brand" href="/reference/1.介绍/"><h5>拓展</h5></a>
+      <nav class="nav nav-pills flex-column">
+          <a class="nav-link ms-3 my-1" href="/reference/1.介绍/">1.介绍</a>
+        
+      </nav>
+    
     
   </nav>      
 
         </div>
+
       </div>
-    </div>
+    </main>
 
     <footer class="container">
       <div class="row border-top py-5">

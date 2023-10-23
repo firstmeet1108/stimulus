@@ -5,13 +5,9 @@ const isDev = process.env.ELEVENTY_ENV === 'development'
 // const rssPlugin = require('@11ty/eleventy-plugin-rss')
 
 module.exports = function (eleventyConfig) {
+  // 设置baseURL 适配github page
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    // The base URL: defaults to Path Prefix
     baseHref: isDev ? '/stimulus/' : '/',
-
-    // But you could use a full URL here too:
-    // baseHref: "http://example.com/"
-
     // Comma separated list of output file extensions to apply
     // our transform to. Use `false` to opt-out of the transform.
     extensions: 'html',
@@ -23,40 +19,35 @@ module.exports = function (eleventyConfig) {
       pathPrefix: 'addPathPrefixToUrl',
     },
   })
-  function filterTagList(tags) {
-    return (tags || []).filter((tag) => ['all', 'nav'].indexOf(tag) === -1)
-  }
   eleventyConfig.setDataDeepMerge(true)
 
-  function filterTagList(tags) {
+  eleventyConfig.addFilter('filterTagList', function filterTagList(tags) {
     return (tags || []).filter(
       (tag) => ['all', 'nav', 'post', 'posts'].indexOf(tag) === -1,
     )
-  }
-
-  eleventyConfig.addFilter('filterTagList', filterTagList)
-
-  eleventyConfig.addCollection('tagList', (collection) => {
-    const tagsObject = {}
-    collection.getAll().forEach((item) => {
-      if (!item.data.tags) return
-      item.data.tags
-        .filter((tag) => !['post', 'all'].includes(tag))
-        .forEach((tag) => {
-          if (typeof tagsObject[tag] === 'undefined') {
-            tagsObject[tag] = 1
-          } else {
-            tagsObject[tag] += 1
-          }
-        })
-    })
-
-    const tagList = []
-    Object.keys(tagsObject).forEach((tag) => {
-      tagList.push({ tagName: tag, tagCount: tagsObject[tag] })
-    })
-    return tagList.sort((a, b) => b.tagCount - a.tagCount)
   })
+
+  // eleventyConfig.addCollection('tagList', (collection) => {
+  //   const tagsObject = {}
+  //   collection.getAll().forEach((item) => {
+  //     if (!item.data.tags) return
+  //     item.data.tags
+  //       .filter((tag) => !['post', 'all'].includes(tag))
+  //       .forEach((tag) => {
+  //         if (typeof tagsObject[tag] === 'undefined') {
+  //           tagsObject[tag] = 1
+  //         } else {
+  //           tagsObject[tag] += 1
+  //         }
+  //       })
+  //   })
+
+  //   const tagList = []
+  //   Object.keys(tagsObject).forEach((tag) => {
+  //     tagList.push({ tagName: tag, tagCount: tagsObject[tag] })
+  //   })
+  //   return tagList.sort((a, b) => b.tagCount - a.tagCount)
+  // })
 
   // Add a filter using the Config API
   eleventyConfig.addWatchTarget('./src/scss/')
@@ -76,6 +67,19 @@ module.exports = function (eleventyConfig) {
       zone: 'utc',
     }).toFormat('yyyy-LL-dd')
   })
+
+  eleventyConfig.addFilter('getData', (oriData) => {
+    let res = {}
+    Object.keys(oriData)
+      .filter((value) => {
+        return value !== 'page' && value !== 'all'
+      })
+      .forEach((key) => {
+        res[key] = oriData[key]
+      })
+    return res
+  })
+
   return {
     dir: {
       input: 'src',
