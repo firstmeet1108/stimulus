@@ -1,13 +1,15 @@
 const { DateTime } = require('luxon')
 const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
+require('dotenv').config()
 const isDev = process.env.ELEVENTY_ENV === 'development'
 // const navigationPlugin = require('@11ty/eleventy-navigation')
 // const rssPlugin = require('@11ty/eleventy-plugin-rss')
 
 module.exports = function (eleventyConfig) {
   // 设置baseURL 为了适配github page
+  console.log(process.env.ELEVENTY_ENV)
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    baseHref: isDev ? '/stimulus/' : '/',
+    baseHref: isDev ? '/' : '/stimulus/',
     // Comma separated list of output file extensions to apply
     // our transform to. Use `false` to opt-out of the transform.
     extensions: 'html',
