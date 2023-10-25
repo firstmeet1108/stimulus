@@ -9,7 +9,7 @@ module.exports = function (eleventyConfig) {
   // 设置baseURL 为了适配github page
   console.log(process.env.ELEVENTY_ENV)
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    baseHref: isDev ? '/' : '/stimulus/',
+    baseHref: isDev ? '/stimulus/' : '/',
     // Comma separated list of output file extensions to apply
     // our transform to. Use `false` to opt-out of the transform.
     extensions: 'html',
