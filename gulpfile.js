@@ -14,6 +14,8 @@ const htmlreplace = require('gulp-html-replace')
 const cfg = require('./gulpconfig.json')
 const paths = cfg.paths
 
+console.log('!!!')
+console.log(paths.node)
 gulp.task('dist-assets', function (done) {
   gulp.src('./src/js/**.*').pipe(gulp.dest('./dev/js'))
   gulp.src('./src/img/**.*').pipe(gulp.dest('./dev/img'))
@@ -120,10 +122,7 @@ gulp.task('sass', function () {
 gulp.task('inject-min-css', function (done) {
   gulp
     .src('./public/**/*.html')
-    .pipe(
-      htmlreplace({
-        css: '/css/theme.min.css',
-      }),
+    .pipe(gulp.dest(paths.dev + '/css')
     )
     .pipe(gulp.dest('./public'))
   done()
