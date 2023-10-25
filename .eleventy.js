@@ -5,7 +5,7 @@ const isDev = process.env.ELEVENTY_ENV === 'development'
 // const rssPlugin = require('@11ty/eleventy-plugin-rss')
 
 module.exports = function (eleventyConfig) {
-  // 设置baseURL 适配github page
+  // 设置baseURL 为了适配github page
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
     baseHref: isDev ? '/stimulus/' : '/',
     // Comma separated list of output file extensions to apply
