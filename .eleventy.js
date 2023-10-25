@@ -1,7 +1,7 @@
 const { DateTime } = require('luxon')
 const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
 require('dotenv').config()
-const isDev = process.env.ELEVENTY_ENV === 'development'
+const isDev = process.env.ELEVENTY_ENV === 'dev'
 // const navigationPlugin = require('@11ty/eleventy-navigation')
 // const rssPlugin = require('@11ty/eleventy-plugin-rss')
 
