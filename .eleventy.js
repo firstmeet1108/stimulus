@@ -21,7 +21,7 @@ module.exports = function (eleventyConfig) {
       pathPrefix: 'addPathPrefixToUrl',
     },
   })
-  eleventyConfig.addGlobalData('isDev', isDev)
+  eleventyConfig.addGlobalData('ELEVENTY_ENV', process.env.ELEVENTY_ENV)
 
   eleventyConfig.setDataDeepMerge(true)
 
