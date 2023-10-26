@@ -6,52 +6,50 @@ const writeFile = promisify(fs.writeFile)
 const gitDiffParser = require('gitdiff-parser')
 
 const HEAD = require('./head')
-const { async } = require('q')
 let newCommit = ''
 let diffstr = ''
+;(async () => {
+  try {
+    // 切换分支至subscription/main
+    execSync('git checkout remotes/subscription/main')
+    console.log('切换分支至subscription/main')
 
-try {
-  // 切换分支至subscription/main
-  execSync('git checkout remotes/subscription/main')
-  console.log('切换分支至subscription/main')
+    // 获取当前分支最新commit号
+    newCommit = execSync('git rev-parse HEAD').toString().replace(/\n/g, '')
+    console.log('获取当前分支最新commit号:' + newCommit)
 
-  // 获取当前分支最新commit号
-  newCommit = execSync('git rev-parse HEAD').toString().replace(/\n/g, '')
-  console.log('获取当前分支最新commit号:' + newCommit)
+    // 判断当前分支是否有变更
+    if (HEAD === newCommit) {
+      console.log('commit号未变更 无需进行diff对比')
 
-  // 判断当前分支是否有变更
-  if (HEAD === newCommit) {
-    console.log('commit号未变更 无需进行diff对比')
+      execSync('git checkout main')
+      console.log('返回主分支')
 
-    execSync('git checkout main')
-    console.log('返回主分支')
+      return
+    }
 
-    return
-  }
+    // 对指定文件进行diff对比
+    diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`).toString()
+    console.log('获取diff对比文本')
+    // let res = gitDiffParser(diffstr)
 
-  // 对指定文件进行diff对比
-  diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`).toString()
-  console.log('获取diff对比文本')
-  ;// let res = gitDiffParser(diffstr)
-  (async () => {
-    await nodegit.Diff.fromBuffer(diffstr,diffstr.length).then((diff) => {
+    await nodegit.Diff.fromBuffer(diffstr, diffstr.length).then((diff) => {
       console.log('获取diff对象如下')
       console.log(diff)
     })
-  })()
+    // 切换分支至main
+    execSync('git checkout main')
+    console.log('返回主分支')
 
-  // 切换分支至main
-  execSync('git checkout main')
-  console.log('返回主分支')
-
-  // 更新HEAD commit号
-  writeFile('./head.js', `module.exports = ${JSON.stringify(newCommit)}`)
-    .then(() => {
-      console.log('写入成功')
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-} catch (err) {
-  console.log(err)
-}
+    // 更新HEAD commit号
+    await writeFile('./head.js', `module.exports = ${JSON.stringify(newCommit)}`)
+      .then(() => {
+        console.log('写入成功')
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  } catch (err) {
+    console.log(err)
+  }
+})()
