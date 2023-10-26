@@ -1,8 +1,9 @@
 const { execSync } = require('child_process')
+const nodegit = require('nodegit')
 const fs = require('fs')
 const { promisify } = require('util')
 const writeFile = promisify(fs.writeFile)
-const gitDiffParser = require('gitdiff-parser')
+// const gitDiffParser = require('gitdiff-parser')
 
 const HEAD = require('./head')
 let newCommit = ''
@@ -28,10 +29,13 @@ try {
   }
 
   // 对指定文件进行diff对比
-  diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`).toString()
+  diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`)
   console.log('获取diff对比文本')
-  let res = gitDiffParser(diffstr)
-  console.log(res)
+  // let res = gitDiffParser(diffstr)
+  nodegit.Diff.fromBuffer(diffstr).then((diff) => {
+    console.log('获取diff对象如下')
+    console.log(diff)
+  })
 
   // 切换分支至main
   execSync('git checkout main')
