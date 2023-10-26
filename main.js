@@ -34,7 +34,7 @@ try {
   console.log('获取diff对比文本')
   ;// let res = gitDiffParser(diffstr)
   (async () => {
-    await nodegit.Diff.fromBuffer(diffstr).then((diff) => {
+    await nodegit.Diff.fromBuffer(diffstr,diffstr.length).then((diff) => {
       console.log('获取diff对象如下')
       console.log(diff)
     })
