@@ -1,5 +1,5 @@
 const { DateTime } = require('luxon')
-const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
+// const { EleventyHtmlBasePlugin } = require('@11ty/eleventy')
 require('dotenv').config()
 const isDev = process.env.ELEVENTY_ENV === 'dev'
 // const navigationPlugin = require('@11ty/eleventy-navigation')
@@ -8,19 +8,19 @@ const isDev = process.env.ELEVENTY_ENV === 'dev'
 module.exports = function (eleventyConfig) {
   // 设置baseURL 为了适配github page
   console.log(isDev)
-  eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
-    baseHref: '/stimulus/',
-    // Comma separated list of output file extensions to apply
-    // our transform to. Use `false` to opt-out of the transform.
-    extensions: 'html',
+  // eleventyConfig.addPlugin(EleventyHtmlBasePlugin, {
+  //   baseHref: '/stimulus/',
+  //   // Comma separated list of output file extensions to apply
+  //   // our transform to. Use `false` to opt-out of the transform.
+  //   extensions: 'html',
 
-    // Rename the filters
-    filters: {
-      base: 'htmlBaseUrl',
-      html: 'transformWithHtmlBase',
-      pathPrefix: 'addPathPrefixToUrl',
-    },
-  })
+  //   // Rename the filters
+  //   filters: {
+  //     base: 'htmlBaseUrl',
+  //     html: 'transformWithHtmlBase',
+  //     pathPrefix: 'addPathPrefixToUrl',
+  //   },
+  // })
 
   eleventyConfig.setDataDeepMerge(true)
 
