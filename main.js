@@ -3,16 +3,15 @@ const nodegit = require('nodegit')
 const fs = require('fs')
 const { promisify } = require('util')
 const writeFile = promisify(fs.writeFile)
-const gitDiffParser = require('gitdiff-parser')
 
 const HEAD = require('./head')
 let newCommit = ''
 let diffstr = ''
 ;(async () => {
   try {
-    // 切换分支至subscription/main
-    execSync('git checkout remotes/subscription/main')
-    console.log('切换分支至subscription/main')
+    // 切换分支至remotes/origin/docs
+    execSync('git checkout remotes/origin/docs')
+    console.log('切换分支至remotes/origin/docs')
 
     // 获取当前分支最新commit号
     newCommit = execSync('git rev-parse HEAD').toString().replace(/\n/g, '')
@@ -42,7 +41,10 @@ let diffstr = ''
     console.log('返回主分支')
 
     // 更新HEAD commit号
-    await writeFile('./head.js', `module.exports = ${JSON.stringify(newCommit)}`)
+    await writeFile(
+      './head.js',
+      `module.exports = ${JSON.stringify(newCommit)}`,
+    )
       .then(() => {
         console.log('写入成功')
       })
