@@ -1,0 +1,13 @@
+diff --git a/docs/handbook/00_the_origin_of_stimulus.md b/docs/handbook/00_the_origin_of_stimulus.md
+index afa4e04..d093f4f 100644
+--- a/docs/handbook/00_the_origin_of_stimulus.md
++++ b/docs/handbook/00_the_origin_of_stimulus.md
+@@ -4,7 +4,7 @@ nav_prefix: Preface
+ order: 00
+ ---
+ 
+-# The Origin of Stimulus123123
++# The Origin of Stimulus
+ 
+ We write a lot of JavaScript at [Basecamp](https://basecamp.com), but we don’t use it to create “JavaScript applications” in the contemporary sense. All our applications have server-side rendered HTML at their core, then add sprinkles of JavaScript to make them sparkle.
+ 
