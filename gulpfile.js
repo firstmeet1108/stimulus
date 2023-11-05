@@ -8,7 +8,7 @@ const rename = require('gulp-rename')
 const purgecss = require('gulp-purgecss')
 // const imagemin = require('gulp-imagemin')
 const htmlmin = require('gulp-htmlmin')
-const htmlreplace = require('gulp-html-replace')
+// const htmlreplace = require('gulp-html-replace')
 // const reload = browserSync.reload
 // Configuration file to keep your code DRY
 const cfg = require('./gulpconfig.json')
@@ -122,8 +122,7 @@ gulp.task('sass', function () {
 gulp.task('inject-min-css', function (done) {
   gulp
     .src('./public/**/*.html')
-    .pipe(gulp.dest(paths.dev + '/css')
-    )
+    .pipe(gulp.dest(paths.dev + '/css'))
     .pipe(gulp.dest('./public'))
   done()
 })
