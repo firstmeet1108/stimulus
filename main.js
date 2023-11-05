@@ -1,5 +1,5 @@
 const { execSync } = require('child_process')
-const nodegit = require('nodegit')
+// const nodegit = require('nodegit')
 const fs = require('fs')
 const { promisify } = require('util')
 const writeFile = promisify(fs.writeFile)
@@ -9,9 +9,9 @@ let newCommit = ''
 let diffstr = ''
 ;(async () => {
   try {
-    // 切换分支至remotes/origin/docs
-    execSync('git checkout remotes/origin/docs')
-    console.log('切换分支至remotes/origin/docs')
+    // 切换分支至remotes/docs/main
+    execSync('git checkout remotes/docs/main')
+    console.log('切换分支至remotes/docs/main')
 
     // 获取当前分支最新commit号
     newCommit = execSync('git rev-parse HEAD').toString().replace(/\n/g, '')
@@ -30,12 +30,13 @@ let diffstr = ''
     // 对指定文件进行diff对比
     diffstr = execSync(`git diff ${HEAD} ${newCommit} -- docs/`).toString()
     console.log('获取diff对比文本')
+    console.log(diffstr)
     // let res = gitDiffParser(diffstr)
 
-    await nodegit.Diff.fromBuffer(diffstr, diffstr.length).then((diff) => {
-      console.log('获取diff对象如下')
-      console.log(diff)
-    })
+    // await nodegit.Diff.fromBuffer(diffstr, diffstr.length).then((diff) => {
+    //   console.log('获取diff对象如下')
+    //   console.log(diff)
+    // })
     // 切换分支至main
     execSync('git checkout main')
     console.log('返回主分支')
