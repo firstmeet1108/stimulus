@@ -1,10 +1,4 @@
-const { execSync, exec } = require('child_process')
-// const fs = require('fs')
-// const { promisify } = require('util')
-// const writeFile = promisify(fs.writeFile)
-
-const HEAD = require('./head')
-
+const { execSync } = require('child_process')
 ;(async () => {
   try {
     execSync('git diff main remotes/docs/main -- docs/ > test.patch').toString()
