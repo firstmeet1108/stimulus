@@ -23,7 +23,7 @@ let transporter = nodemailer.createTransport({
 let mailOptions = {
   from: '"firstmeet" <2022742378@qq.com>',
   to: '2022742378@qq.com',
-  subject: 'Stimulus文档粗稿待审通知',
+  subject: 'Stimulus docs更新通知',
 }
 // 创建路由实例
 const router = new Router()
