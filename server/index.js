@@ -3,6 +3,7 @@ const cors = require('@koa/cors')
 const Router = require('koa-router')
 const bodyParser = require('koa-bodyparser')
 const nodemailer = require('nodemailer')
+const config = require('../config')
 
 // 创建 koa 实例
 const app = new Koa()
@@ -14,16 +15,15 @@ let transporter = nodemailer.createTransport({
   secure: true, // true for 465, false for other ports
   auth: {
     // 发送邮件的邮箱和授权码（不是密码）
-    user: '',
-    pass: 'xxxxxx',
+    user: '2022742378@qq.com',
+    pass: config.MailPass,
   },
 })
 
 let mailOptions = {
   from: '"firstmeet" <2022742378@qq.com>',
   to: '2022742378@qq.com',
-  subject: 'Hello',
-  html: '<b>Hello world?</b>',
+  subject: 'Stimulus文档粗稿待审通知',
 }
 // 创建路由实例
 const router = new Router()
@@ -34,6 +34,8 @@ router.post('/', async (ctx) => {
   let detail = JSON.parse(pushData.payload)
   console.log(detail.head_commit.modified)
   let updateFiles = detail.head_commit.modified
+  let checkUrl = detail.head_commit.url
+  mailOptions.html = `<b>stimulus文档粗稿待审，请前往 <a href="${checkUrl}"> ${checkUrl} </a> 查看更新</b>`
   updateFiles.forEach((element) => {
     let dir = element.split('/')[0]
     if (dir === 'docs') {

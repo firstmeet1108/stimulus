@@ -32,7 +32,7 @@ module.exports = {
     indent: ['error', 2],
     'linebreak-style': 0,
     'quote-props': ['error', 'as-needed'],
-    quotes: ['error', 'single'],
+    quotes: ['error', 'single', 'backtick'],
     semi: ['error', 'never'],
     'no-trailing-spaces': 'error',
     'new-cap': 0,
