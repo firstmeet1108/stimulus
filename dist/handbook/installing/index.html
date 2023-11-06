@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="/js/theme-detection.js?b52e7e27-867c-4a53-a54e-7834f726b461"></script>
+        <script src="/js/theme-detection.js?50b93dff-a20f-4c67-a67c-8fe68219ab76"></script>
         <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-800.woff2" crossorigin>
@@ -55,8 +55,8 @@
 
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
 
-        <link rel="stylesheet" href="/css/main.css?b52e7e27-867c-4a53-a54e-7834f726b461" />
-        <link rel="stylesheet" href="/css/custom.css?b52e7e27-867c-4a53-a54e-7834f726b461" />
+        <link rel="stylesheet" href="/css/main.css?50b93dff-a20f-4c67-a67c-8fe68219ab76" />
+        <link rel="stylesheet" href="/css/custom.css?50b93dff-a20f-4c67-a67c-8fe68219ab76" />
     </head>
     <body>
         <div class="site-wrapper">
@@ -76,7 +76,7 @@
     </g>
 </svg>
         </a>
-        
+        <!-- 
             <nav class="header__navigation">
                 <ul>
                     
@@ -124,7 +124,7 @@
                     
                 </ul>
             </nav>
-        
+         -->
         <button class="btn btn--primary btn--icon header__toggle" data-action="sidebar-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toogle navigation">
             <svg aria-hidden='true' focusable='false' role='img' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg' style='fill: currentColor' width='24' height='24' class='btn__icon'>
     <path d='M24,19.6c0,-0.331 -0.269,-0.6 -0.6,-0.6l-20.8,0c-0.331,0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l20.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-22.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l22.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Zm0,-9c0,-0.331 -0.269,-0.6 -0.6,-0.6l-15.8,-0c-0.331,-0 -0.6,0.269 -0.6,0.6l0,2.8c0,0.331 0.269,0.6 0.6,0.6l15.8,-0c0.331,-0 0.6,-0.269 0.6,-0.6l0,-2.8Z'></path>
@@ -261,6 +261,8 @@
                 <h3 class="sidebar-section__title">Handbook</h3>
                 <nav class="sidebar-section__navigation">
                     <ul>
+                        
+                            <li><a href="/handbook/origin/" >前言：Stimulus 的起源</a></li>
                         
                             <li><a href="/handbook/installing/"  aria-current="page" data-state="active">在应用程序中安装Stimulus</a></li>
                         
@@ -446,13 +448,26 @@ $ yarn start
 
 <nav class="post-navigation">
     
+        <a class="post-navigation-item post-navigation-item--prev" href="/handbook/origin/">
+            <span class="post-navigation-item__icon">
+                <svg width='100%' height='100%' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;fill:currentColor;' class='icon'>
+    <path d='M22.46,10.468l-17.204,-0l7.516,-7.517c0.601,-0.6 0.601,-1.586 0,-2.187c-0.601,-0.6 -1.571,-0.6 -2.172,0l-10.149,10.15c-0.601,0.601 -0.601,1.571 -0,2.172l10.149,10.15c0.601,0.6 1.571,0.6 2.172,-0c0.601,-0.601 0.601,-1.571 0,-2.172l-7.516,-7.516l17.204,-0c0.847,-0 1.54,-0.693 1.54,-1.54c0,-0.847 -0.693,-1.54 -1.54,-1.54Z'></path>
+</svg>
+
+            </span>
+            <span class="post-navigation-item__caption">
+                Previous
+                <span class="post-navigation-item__title">前言：Stimulus 的起源</span>
+            </span>
+        </a>
+    
     
 </nav>
 
 </main>
                         <footer class="footer">
     <div class="footer__inner">
-        
+        <!-- 
         <div class="footer__column">
             <h3 class="footer__title" id="footer-title-getting-started">
                 Getting Started
@@ -672,7 +687,7 @@ $ yarn start
                 
             </ul>
         </div>
-        
+         -->
     </div>
 </footer>
 
@@ -689,10 +704,10 @@ $ yarn start
 <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
 
 
-        <script src="/js/theme-change-assets.js?b52e7e27-867c-4a53-a54e-7834f726b461" defer></script>
-        <script src="/js/navigation.js?b52e7e27-867c-4a53-a54e-7834f726b461" defer></script>
-        <script src="/js/theme-switcher.js?b52e7e27-867c-4a53-a54e-7834f726b461" defer></script>
-        <script src="/js/modal.js?b52e7e27-867c-4a53-a54e-7834f726b461" defer></script>
-        <script src="/js/accordion-card.js?b52e7e27-867c-4a53-a54e-7834f726b461" defer></script>
+        <script src="/js/theme-change-assets.js?50b93dff-a20f-4c67-a67c-8fe68219ab76" defer></script>
+        <script src="/js/navigation.js?50b93dff-a20f-4c67-a67c-8fe68219ab76" defer></script>
+        <script src="/js/theme-switcher.js?50b93dff-a20f-4c67-a67c-8fe68219ab76" defer></script>
+        <script src="/js/modal.js?50b93dff-a20f-4c67-a67c-8fe68219ab76" defer></script>
+        <script src="/js/accordion-card.js?50b93dff-a20f-4c67-a67c-8fe68219ab76" defer></script>
     </body>
 </html>

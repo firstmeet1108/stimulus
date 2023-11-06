@@ -3,7 +3,7 @@
         <a class="header__logo" href="/" aria-label="{{ site.name }}">
             {% svgIcon './src/img/cone-docs-logo.svg' %}
         </a>
-        {% if navigation.header.length > 0 %}
+        <!-- {% if navigation.header.length > 0 %}
             <nav class="header__navigation">
                 <ul>
                     {% for item in navigation.header %}
@@ -26,7 +26,7 @@
                     {% endfor %}
                 </ul>
             </nav>
-        {% endif %}
+        {% endif %} -->
         <button class="btn btn--primary btn--icon header__toggle" data-action="sidebar-toggle" aria-controls="primary-menu" aria-expanded="false" aria-label="Toogle navigation">
             {% svgIcon './src/img/icon/menu.svg', 'btn__icon' %}
         </button>
