@@ -1,25 +1,23 @@
 const Koa = require('koa')
-const app = new Koa()
-const bodyparser = require('koa-bodyparser')
+const cors = require('@koa/cors')
 const Router = require('koa-router')
 
+// 创建 koa 实例
+const app = new Koa()
+
+// 创建路由实例
 const router = new Router()
 
-router.get('/', async (ctx, next) => {
-  ctx.body = 'hello world'
-  await next()
-})
-
-app.use(router.routes()).use(router.allowedMethods())
-app.use(
-  bodyparser({
-    enableTypes: ['json', 'form', 'text'],
-  }),
-)
-app.use(async (ctx, next) => {
+router.post('/', async (ctx) => {
   console.log(ctx.request.body)
-  ctx.body = 'hello world'
-  await next()
 })
 
-app.listen(3000)
+app.use(cors())
+
+app.use(router.routes())
+
+const PORT = 6671
+
+app.listen(PORT, () => {
+  console.log(`starting at http://127.0.0.1:${PORT}`)
+})
