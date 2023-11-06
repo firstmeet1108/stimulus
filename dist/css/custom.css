@@ -1,3 +1,7 @@
 .logo__icon {
   fill: #77e8b9;
 }
+
+[data-theme-mode="dark"] .logo__wordmark {
+    fill: #fff;
+}
