@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="/js/theme-detection.js?22c55f42-f90a-49e9-9aae-8225636f77ef"></script>
+        <script src="/js/theme-detection.js?9b220a34-8258-42a2-9151-276d91002287"></script>
         <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-800.woff2" crossorigin>
@@ -33,15 +33,15 @@
     
 
 
-<title>Reference - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。</title>
-<link rel="canonical" href="https://eleventy-documentation.sprucecss.com/reference/" />
+<title>stimulus的起源 - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。</title>
+<link rel="canonical" href="https://eleventy-documentation.sprucecss.com/Handbook/origin.html" />
 
 <meta name="generator" content="Eleventy v2.0.1" />
 
 <meta property="og:site_name" content="Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。" />
-<meta property="og:title" content="Reference - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。" />
+<meta property="og:title" content="stimulus的起源 - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://eleventy-documentation.sprucecss.com/reference/" />
+<meta property="og:url" content="https://eleventy-documentation.sprucecss.com/Handbook/origin.html" />
 
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -55,8 +55,8 @@
 
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
 
-        <link rel="stylesheet" href="/css/main.css?22c55f42-f90a-49e9-9aae-8225636f77ef" />
-        <link rel="stylesheet" href="/css/custom.css?22c55f42-f90a-49e9-9aae-8225636f77ef" />
+        <link rel="stylesheet" href="/css/main.css?9b220a34-8258-42a2-9151-276d91002287" />
+        <link rel="stylesheet" href="/css/custom.css?9b220a34-8258-42a2-9151-276d91002287" />
     </head>
     <body>
         <div class="site-wrapper">
@@ -262,7 +262,7 @@
                 <nav class="sidebar-section__navigation">
                     <ul>
                         
-                            <li><a href="/Handbook/origin.html" >stimulus的起源</a></li>
+                            <li><a href="/Handbook/origin.html"  aria-current="page" data-state="active">stimulus的起源</a></li>
                         
                             <li><a href="/Handbook/installing.html" >在应用程序中安装Stimulus</a></li>
                         
@@ -287,9 +287,9 @@
 
                     <div class="l-main__body">
                         <main id="content">
-    <div class="l-list">
-        
-        <div class="post-heading">
+<article class="l-post" data-pagefind-body>
+    
+     <div class="post-heading">
     
     
         <ol class="breadcrumb-list post-heading__breadcrumb">
@@ -298,7 +298,12 @@
     </li>
         <li>
             
-                <span aria-current="page">Reference</span>
+                <a href="/handbook/">Handbook</a>
+            
+        </li>
+        <li>
+            
+                <span aria-current="page">stimulus的起源</span>
             
         </li>
 </ol>
@@ -306,19 +311,74 @@
     
     
         <h1 class="post-heading__title">
-            Reference
+            stimulus的起源
         </h1>
     
     
     
 </div>
-
-        <div class="l-list__inner l-card">
-            
-            
-        </ol>
+ 
+    <div class="l-post__toc toc" aria-labelledby="toc-title">
+        <section class="toc" aria-labelledby="toc-title">
+            <h3 class="toc__title" id="toc-title">On this page</h3>
+            <nav class="toc__navigation"><nav class="toc" >
+        <ol><li><a href="#turbo%E9%AB%98%E9%A3%9E%EF%BC%8Cstimulus%E4%BD%8E%E8%A1%8C">Turbo高飞，Stimulus低行</a></li><li><a href="#stimulus%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">Stimulus的三个核心概念</a></li></ol>
+      </nav></nav>
+        </section>
     </div>
-</main>
+    
+    <div class="l-post__content post-content"><!--
+00_stimulus的起源.md
+
+permalink: /handbook/origin.html
+order: 00 
+-->
+<h1 id="stimulus%E7%9A%84%E8%B5%B7%E6%BA%90" tabindex="-1">Stimulus的起源 <a class="anchor" href="#stimulus%E7%9A%84%E8%B5%B7%E6%BA%90">#</a></h1>
+<p>在<a href="https://basecamp.com">Basecamp</a>我们写了很多JavaScript代码，但我们并不像当代那样使用它来创建“JavaScript应用程序”。我们所有的应用程序都以服务器端渲染的HTML为核心，然后添加一些JavaScript来使它们闪耀起来。</p>
+<p>这就是“宏伟的整体”（majestic monolith）的方式。Basecamp在包括原生移动应用程序在内的半打平台上运行，使用Ruby on Rails创建了一组控制器、视图和模型。拥有一个单一的共享接口可以在一个地方更新是关键，可以使小团队能够在多个平台上执行任务。</p>
+<p>它使我们能够像昔日那样高效地工作。回到一个单个程序员可以在不受间接性或分布式系统束缚的情况下取得迅猛进展的时代。在人们都认为将服务器端应用程序限制为为基于JavaScript的客户端应用程序生成JSON之前。</p>
+<p>这并不意味着这种方式对某些人或某些时候没有价值。只是作为许多应用程序的一般方法，特别是Basecamp，这是整体简单性和生产力的倒退。</p>
+<p>这也不意味着单页面JavaScript应用程序的泛滥没有带来真正的好处。其中最重要的好处之一是更快、更流畅的界面，摆脱了整个页面刷新的束缚。</p>
+<p>我们也希望Basecamp也能感觉像这样。仿佛我们已经跟随潮流，使用客户端渲染重新编写了所有内容，或者在移动端完全采用原生方式。</p>
+<p>这种愿望使我们找到了一个两手准备的解决方案：<a href="https://turbo.hotwired.dev">Turbo</a>和Stimulus。</p>
+<h3 id="turbo%E9%AB%98%E9%A3%9E%EF%BC%8Cstimulus%E4%BD%8E%E8%A1%8C" tabindex="-1">Turbo高飞，Stimulus低行 <a class="anchor" href="#turbo%E9%AB%98%E9%A3%9E%EF%BC%8Cstimulus%E4%BD%8E%E8%A1%8C">#</a></h3>
+<p>在我介绍新的、谦逊的JavaScript框架Stimulus之前，请允许我回顾一下Turbo的提出。</p>
+<p>Turbo源自在GitHub开发的一种称为<a href="https://github.com/defunkt/jquery-pjax">pjax</a>的方法。基本概念仍然是一样的。整个页面刷新的速度通常感觉很慢的原因并不是因为浏览器必须处理从服务器发送的一堆HTML。浏览器在这方面非常出色且速度很快。而且在大多数情况下，HTML的大小通常比JSON的大小更大并不重要（尤其是在启用了gzip压缩的情况下）。不，原因在于CSS和JavaScript必须重新初始化和应用到页面上。无论文件本身是否被缓存。如果你有大量的CSS和JavaScript，这可能会非常慢。</p>
+<p>为了避免重新初始化，Turbo保持一个持久化的进程，就像单页面应用程序一样。但它大部分是一个看不见的进程。它拦截链接并通过Ajax加载新页面。服务器仍然返回完整的HTML文档。</p>
+<p>仅凭这种策略，大多数应用程序中的大多数操作都会感觉非常快（如果它们能够在100-200毫秒内返回服务器响应，这在使用缓存时是完全可能的）。对于Basecamp来说，它将页面与页面之间的转换速度提高了约3倍。它使应用程序具有了单页面应用程序的响应和流畅性，这是其吸引人之处的一个重要因素。</p>
+<p>但单靠Turbo并不能解决全部问题。这只能解决程度较粗的部分。在完整页面更改之下，还有一个单页面内的所有细粒度的精确度。比如显示和隐藏元素，复制内容到剪贴板，向列表添加新任务等与现代Web应用程序相关的所有交互。</p>
+<p>在使用Stimulus之前，Basecamp使用了一系列不同的风格和模式来应用这些功能。有些代码只是少量的jQuery，有些代码是类似大小的纯JavaScript，还有一些是较大的面向对象子系统。它们通常都是基于一个<code>data-behavior</code>属性的显式事件处理。</p>
+<p>虽然添加新代码很容易，但这不是一个全面的解决方案，我们拥有太多的内部风格和模式共存。这使得代码的复用变得困难，并且新开发人员很难学习到一种一致的方法。</p>
+<h3 id="stimulus%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5" tabindex="-1">Stimulus的三个核心概念 <a class="anchor" href="#stimulus%E7%9A%84%E4%B8%89%E4%B8%AA%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5">#</a></h3>
+<p>Stimulus将这些模式中最好的部分整合到了一个谦逊且小型的框架中，围绕着三个主要概念：控制器、动作和目标。</p>
+<p>它在处理HTML时被设计为一种渐进增强的方式。这样你可以查看一个单独的模板，就知道哪个行为作用于它。以下是一个例子：</p>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">data-controller</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>clipboard<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  PIN: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">data-clipboard-target</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>source<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1234<span class="token punctuation">"</span></span> <span class="token attr-name">readonly</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span> <span class="token attr-name">data-action</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>clipboard#copy<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>复制到剪贴板<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
+</div>
+</article>
+
+
+
+<nav class="post-navigation">
+    
+    
+        <a class="post-navigation-item post-navigation-item--next" href="/Handbook/installing.html">
+            <span class="post-navigation-item__caption">
+                Next
+                <span class="post-navigation-item__title">在应用程序中安装Stimulus</span>
+            </span>
+            <span class="post-navigation-item__icon">
+                <svg width='100%' height='100%' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;fill:currentColor;' class='icon'>
+    <path d='M1.54,13.532l17.204,0l-7.516,7.517c-0.601,0.6 -0.601,1.586 -0,2.187c0.601,0.6 1.571,0.6 2.172,-0l10.149,-10.15c0.601,-0.601 0.601,-1.571 0,-2.172l-10.149,-10.15c-0.601,-0.6 -1.571,-0.6 -2.172,0c-0.601,0.601 -0.601,1.571 -0,2.172l7.516,7.516l-17.204,0c-0.847,0 -1.54,0.693 -1.54,1.54c0,0.847 0.693,1.54 1.54,1.54Z'></path>
+</svg>
+
+            </span
+        ></a>
+    
+</nav>
+ </main>
                         <footer class="footer">
     <div class="footer__inner">
         <!-- 
@@ -558,10 +618,10 @@
 <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
 
 
-        <script src="/js/theme-change-assets.js?22c55f42-f90a-49e9-9aae-8225636f77ef" defer></script>
-        <script src="/js/navigation.js?22c55f42-f90a-49e9-9aae-8225636f77ef" defer></script>
-        <script src="/js/theme-switcher.js?22c55f42-f90a-49e9-9aae-8225636f77ef" defer></script>
-        <script src="/js/modal.js?22c55f42-f90a-49e9-9aae-8225636f77ef" defer></script>
-        <script src="/js/accordion-card.js?22c55f42-f90a-49e9-9aae-8225636f77ef" defer></script>
+        <script src="/js/theme-change-assets.js?9b220a34-8258-42a2-9151-276d91002287" defer></script>
+        <script src="/js/navigation.js?9b220a34-8258-42a2-9151-276d91002287" defer></script>
+        <script src="/js/theme-switcher.js?9b220a34-8258-42a2-9151-276d91002287" defer></script>
+        <script src="/js/modal.js?9b220a34-8258-42a2-9151-276d91002287" defer></script>
+        <script src="/js/accordion-card.js?9b220a34-8258-42a2-9151-276d91002287" defer></script>
     </body>
 </html>

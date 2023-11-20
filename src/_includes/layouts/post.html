@@ -5,10 +5,11 @@ eleventyComputed:
         key: "{{ title }}"
         order: "{{ order }}"
         parent: "{{ page.filePathStem.split('/')[2] }}"
+        
 ---
 {% extends "layouts/base.html" %} {% block content %}
 <article class="l-post" data-pagefind-body>
-    {# {% set posts = collections.all | log %} #}
+    {% set posts = collections.all | log %}
     {% set breadcrumbs = collections.all | eleventyNavigationBreadcrumb(title, {
     includeSelf: true }) %} {% include "partials/post-heading.html" %} {% if
     content | toc %}
