@@ -4,8 +4,7 @@ eleventyComputed:
     eleventyNavigation:
         key: "{{ title }}"
         order: "{{ order }}"
-        parent: "{{ page.filePathStem.split('/')[2] }}"
-        
+        parent: "{{ page.filePathStem.split('/')[2].replace(page.filePathStem.split('/')[2][0],page.filePathStem.split('/')[2][0].toUpperCase()) }}"
 ---
 {% extends "layouts/base.html" %} {% block content %}
 <article class="l-post" data-pagefind-body>

@@ -1,5 +1,5 @@
 ---
-permalink: /Handbook/origin.html
+permalink: /handbook/origin.html
 order: 00
 ---
 <!--

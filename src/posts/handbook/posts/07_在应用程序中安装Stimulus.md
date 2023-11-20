@@ -1,5 +1,5 @@
 ---
-permalink: /Handbook/installing.html
+permalink: /handbook/installing.html
 order: 07
 ---
 
