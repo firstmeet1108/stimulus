@@ -14,7 +14,7 @@ const messages = [
   {
     role: "system",
     content:
-      "Translate the following Markdown text into Chinese and return it to me in Markdown code format. Do not translate the contents of Stimulus and contents inside '---' and '---'.", // 翻译的条件
+      "Translate the following Markdown text into Chinese and return it to me in Markdown code format. Do not translate the contents of Stimulus. Regular expression matching the content inside ---([\s\S]+?)---. ", // 翻译的条件
   },
   { role: "user", content: inputText },
 ];

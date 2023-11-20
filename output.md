@@ -1,9 +1,9 @@
 ---
 permalink: /handbook/origin.html
-nav_prefix: 序言
+nav_prefix: 前言
 order: 01
 ---
 
 # Stimulus的起源
 
-在[Basecamp](https://basecamp.com)，我们使用大量的JavaScript，但我们并不像现代意义上创建“JavaScript应用程序”。我们所有的应用程序都是以服务器端渲染的HTML为核心，然后添加少量的JavaScript来让它们更加闪耀。
+我们在 [Basecamp](https://basecamp.com) 写了很多 JavaScript 代码，但我们并没有以当下流行的“JavaScript应用程序”的方式使用它。所有我们的应用程序都以服务端渲染的HTML为核心，然后添加少量的JavaScript代码来增添亮点。
