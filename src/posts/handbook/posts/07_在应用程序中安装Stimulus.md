@@ -1,11 +1,6 @@
 ---
-title: "在应用程序中安装Stimulus"
-summary: ""
-permalink: /handbook/installing.html
-eleventyNavigation:
-  key: 在应用程序中安装Stimulus
-  parent: Handbook
-  order: 07
+permalink: /Handbook/installing.html
+order: 07
 ---
 
 # Hello, Stimulus

@@ -15,6 +15,7 @@ block_comment_end = */
 
 [*.{scss,css,js,json,yml,md}]
 indent_size = 2
+end_of_line = lf
 
 [acf-json/*.json]
 insert_final_newline = unset

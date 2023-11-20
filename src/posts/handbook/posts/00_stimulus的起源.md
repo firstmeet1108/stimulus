@@ -1,13 +1,13 @@
 ---
-title: "Stimulus的起源"
-summary: ""
-permalink: /handbook/origin.html
-eleventyNavigation:
-  key: Stimulus的起源
-  parent: Handbook
-  order: 
+permalink: /Handbook/origin.html
+order: 00
 ---
-  
+<!--
+00_stimulus的起源.md
+
+permalink: /handbook/origin.html
+order: 00 
+-->
 # Stimulus的起源
 
 在[Basecamp](https://basecamp.com)我们写了很多JavaScript代码，但我们并不像当代那样使用它来创建“JavaScript应用程序”。我们所有的应用程序都以服务器端渲染的HTML为核心，然后添加一些JavaScript来使它们闪耀起来。

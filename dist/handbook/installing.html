@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="/js/theme-detection.js?729af334-4457-4a99-868f-83d3b80a2090"></script>
+        <script src="/js/theme-detection.js?068bee2f-0254-47da-82dd-b2ad780df9b8"></script>
         <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-regular.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-600.woff2" crossorigin>
 <link rel="preload" as="font" type="font/woff2" href="/font/manrope-v14-latin-800.woff2" crossorigin>
@@ -34,14 +34,14 @@
 
 
 <title>在应用程序中安装Stimulus - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。</title>
-<link rel="canonical" href="https://eleventy-documentation.sprucecss.com/handbook/installing.html" />
+<link rel="canonical" href="https://eleventy-documentation.sprucecss.com/Handbook/installing.html" />
 
 <meta name="generator" content="Eleventy v2.0.1" />
 
 <meta property="og:site_name" content="Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。" />
 <meta property="og:title" content="在应用程序中安装Stimulus - Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://eleventy-documentation.sprucecss.com/handbook/installing.html" />
+<meta property="og:url" content="https://eleventy-documentation.sprucecss.com/Handbook/installing.html" />
 
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -55,8 +55,8 @@
 
 <link rel="icon" href="/img/favicon.svg" type="image/svg+xml" />
 
-        <link rel="stylesheet" href="/css/main.css?729af334-4457-4a99-868f-83d3b80a2090" />
-        <link rel="stylesheet" href="/css/custom.css?729af334-4457-4a99-868f-83d3b80a2090" />
+        <link rel="stylesheet" href="/css/main.css?068bee2f-0254-47da-82dd-b2ad780df9b8" />
+        <link rel="stylesheet" href="/css/custom.css?068bee2f-0254-47da-82dd-b2ad780df9b8" />
     </head>
     <body>
         <div class="site-wrapper">
@@ -262,9 +262,9 @@
                 <nav class="sidebar-section__navigation">
                     <ul>
                         
-                            <li><a href="/handbook/origin.html" >Stimulus的起源</a></li>
+                            <li><a href="/Handbook/origin.html" >stimulus的起源</a></li>
                         
-                            <li><a href="/handbook/installing.html"  aria-current="page" data-state="active">在应用程序中安装Stimulus</a></li>
+                            <li><a href="/Handbook/installing.html"  aria-current="page" data-state="active">在应用程序中安装Stimulus</a></li>
                         
                     </ul>
                 </nav>
@@ -274,10 +274,6 @@
                 <h3 class="sidebar-section__title">Reference</h3>
                 <nav class="sidebar-section__navigation">
                     <ul>
-                        
-                            <li><a href="/reference/origin.html" >Stimulus的起源</a></li>
-                        
-                            <li><a href="/reference/installing.html" >在应用程序中安装Stimulus</a></li>
                         
                     </ul>
                 </nav>
@@ -291,9 +287,9 @@
 
                     <div class="l-main__body">
                         <main id="content">
-    <article class="l-post" data-pagefind-body>
-        
-        <div class="post-heading">
+<article class="l-post" data-pagefind-body>
+    
+     <div class="post-heading">
     
     
         <ol class="breadcrumb-list post-heading__breadcrumb">
@@ -303,11 +299,6 @@
         <li>
             
                 <a href="/handbook/">Handbook</a>
-            
-        </li>
-        <li>
-            
-                <a href="/reference/">Reference</a>
             
         </li>
         <li>
@@ -326,19 +317,17 @@
     
     
 </div>
-
-        
-        <div class="l-post__toc toc" aria-labelledby="toc-title">
-            <section class="toc" aria-labelledby="toc-title">
-                <h3 class="toc__title" id="toc-title">On this page</h3>
-                <nav class="toc__navigation"><nav class="toc" >
+ 
+    <div class="l-post__toc toc" aria-labelledby="toc-title">
+        <section class="toc" aria-labelledby="toc-title">
+            <h3 class="toc__title" id="toc-title">On this page</h3>
+            <nav class="toc__navigation"><nav class="toc" >
         <ol><li><a href="#action-descriptors-explained">Action Descriptors Explained</a></li><li><a href="#prerequisites">Prerequisites</a></li><li><a href="#it-all-starts-with-html">It All Starts With HTML</a></li><li><a href="#controllers-bring-html-to-life">Controllers Bring HTML to Life</a></li><li><a href="#identifiers-link-controllers-with-the-dom">Identifiers Link Controllers With the DOM</a></li><li><a href="#is-this-thing-on%3F">Is This Thing On?</a></li><li><a href="#actions-respond-to-dom-events">Actions Respond to DOM Events</a></li><li><a href="#targets-map-important-elements-to-controller-properties">Targets Map Important Elements To Controller Properties</a></li><li><a href="#controllers-simplify-refactoring">Controllers Simplify Refactoring</a></li><li><a href="#wrap-up-and-next-steps">Wrap-Up and Next Steps</a></li></ol>
       </nav></nav>
-            </section>
-        </div>
-        
-        <div class="l-post__content post-content">
-            <h1 id="hello%2C-stimulus" tabindex="-1">Hello, Stimulus <a class="anchor" href="#hello%2C-stimulus">#</a></h1>
+        </section>
+    </div>
+    
+    <div class="l-post__content post-content"><h1 id="hello%2C-stimulus" tabindex="-1">Hello, Stimulus <a class="anchor" href="#hello%2C-stimulus">#</a></h1>
 <p>The best way to learn how Stimulus works is to build a simple controller. This chapter will show you how.</p>
 <h2 id="prerequisites" tabindex="-1">Prerequisites <a class="anchor" href="#prerequisites">#</a></h2>
 <p>To follow along, you'll need a running copy of the <a href="https://github.com/hotwired/stimulus-starter"><code>stimulus-starter</code></a> project, which is a preconfigured blank slate for exploring Stimulus.</p>
@@ -458,15 +447,14 @@ $ yarn start
 <h2 id="wrap-up-and-next-steps" tabindex="-1">Wrap-Up and Next Steps <a class="anchor" href="#wrap-up-and-next-steps">#</a></h2>
 <p>Congratulations—you've just written your first Stimulus controller!</p>
 <p>We've covered the framework's most important concepts: controllers, actions, and targets. In the next chapter, we'll see how to put those together to build a real-life controller taken right from Basecamp.</p>
+</div>
+</article>
 
-        </div>
-    </article>
-    
 
 
 <nav class="post-navigation">
     
-        <a class="post-navigation-item post-navigation-item--prev" href="/reference/origin.html">
+        <a class="post-navigation-item post-navigation-item--prev" href="/Handbook/origin.html">
             <span class="post-navigation-item__icon">
                 <svg width='100%' height='100%' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;fill:currentColor;' class='icon'>
     <path d='M22.46,10.468l-17.204,-0l7.516,-7.517c0.601,-0.6 0.601,-1.586 0,-2.187c-0.601,-0.6 -1.571,-0.6 -2.172,0l-10.149,10.15c-0.601,0.601 -0.601,1.571 -0,2.172l10.149,10.15c0.601,0.6 1.571,0.6 2.172,-0c0.601,-0.601 0.601,-1.571 0,-2.172l-7.516,-7.516l17.204,-0c0.847,-0 1.54,-0.693 1.54,-1.54c0,-0.847 -0.693,-1.54 -1.54,-1.54Z'></path>
@@ -475,27 +463,13 @@ $ yarn start
             </span>
             <span class="post-navigation-item__caption">
                 Previous
-                <span class="post-navigation-item__title">Stimulus的起源</span>
+                <span class="post-navigation-item__title">stimulus的起源</span>
             </span>
         </a>
     
     
-        <a class="post-navigation-item post-navigation-item--next" href="/reference/installing.html">
-            <span class="post-navigation-item__caption">
-                Next
-                <span class="post-navigation-item__title">在应用程序中安装Stimulus</span>
-            </span>
-            <span class="post-navigation-item__icon">
-                <svg width='100%' height='100%' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;fill:currentColor;' class='icon'>
-    <path d='M1.54,13.532l17.204,0l-7.516,7.517c-0.601,0.6 -0.601,1.586 -0,2.187c0.601,0.6 1.571,0.6 2.172,-0l10.149,-10.15c0.601,-0.601 0.601,-1.571 0,-2.172l-10.149,-10.15c-0.601,-0.6 -1.571,-0.6 -2.172,0c-0.601,0.601 -0.601,1.571 -0,2.172l7.516,7.516l-17.204,0c-0.847,0 -1.54,0.693 -1.54,1.54c0,0.847 0.693,1.54 1.54,1.54Z'></path>
-</svg>
-
-            </span
-        ></a>
-    
 </nav>
-
-</main>
+ </main>
                         <footer class="footer">
     <div class="footer__inner">
         <!-- 
@@ -735,10 +709,10 @@ $ yarn start
 <script src="/_pagefind/pagefind-ui.js" onload="new PagefindUI({ element: '#search', showImages: false });"></script>
 
 
-        <script src="/js/theme-change-assets.js?729af334-4457-4a99-868f-83d3b80a2090" defer></script>
-        <script src="/js/navigation.js?729af334-4457-4a99-868f-83d3b80a2090" defer></script>
-        <script src="/js/theme-switcher.js?729af334-4457-4a99-868f-83d3b80a2090" defer></script>
-        <script src="/js/modal.js?729af334-4457-4a99-868f-83d3b80a2090" defer></script>
-        <script src="/js/accordion-card.js?729af334-4457-4a99-868f-83d3b80a2090" defer></script>
+        <script src="/js/theme-change-assets.js?068bee2f-0254-47da-82dd-b2ad780df9b8" defer></script>
+        <script src="/js/navigation.js?068bee2f-0254-47da-82dd-b2ad780df9b8" defer></script>
+        <script src="/js/theme-switcher.js?068bee2f-0254-47da-82dd-b2ad780df9b8" defer></script>
+        <script src="/js/modal.js?068bee2f-0254-47da-82dd-b2ad780df9b8" defer></script>
+        <script src="/js/accordion-card.js?068bee2f-0254-47da-82dd-b2ad780df9b8" defer></script>
     </body>
 </html>
