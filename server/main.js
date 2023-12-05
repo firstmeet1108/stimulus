@@ -3,7 +3,7 @@ const { execSync } = require('child_process');
 const config = {
   cwd: '../',
 };
-const test = () => {
+const diffCommit = () => {
   try {
     const patchStr = execSync(
       'git diff main remotes/docs/main -- docs',
@@ -25,4 +25,7 @@ const test = () => {
     console.log('Error: ', e);
   }
 };
-test();
+
+module.exports = {
+  diffCommit,
+};
