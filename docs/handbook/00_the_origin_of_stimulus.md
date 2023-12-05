@@ -1,10 +1,9 @@
 ---
 permalink: /handbook/origin.html
-nav_prefix: Preface
 order: 00
 ---
 
-# The Origin of Stimulus
+# The Origin of Stimulustest
 
 We write a lot of JavaScript at [Basecamp](https://basecamp.com), but we don’t use it to create “JavaScript applications” in the contemporary sense. All our applications have server-side rendered HTML at their core, then add sprinkles of JavaScript to make them sparkle.
 
@@ -44,7 +43,8 @@ It’s designed to read as a progressive enhancement when you look at the HTML i
 
 ```html
 <div data-controller="clipboard">
-  PIN: <input data-clipboard-target="source" type="text" value="1234" readonly>
+  PIN:
+  <input data-clipboard-target="source" type="text" value="1234" readonly />
   <button data-action="clipboard#copy">Copy to Clipboard</button>
 </div>
 ```
@@ -57,7 +57,6 @@ Stimulus is concerned with manipulating this existing HTML document. Sometimes t
 
 There are cases where you’d want Stimulus to create new DOM elements, and you’re definitely free to do that. We might even add some sugar to make it easier in the future. But it’s the minority use case. The focus is on manipulating, not creating elements.
 
-
 ### How Stimulus differs from mainstream JavaScript frameworks
 
 This makes Stimulus very different from the majority of contemporary JavaScript frameworks. Almost all are focused on turning JSON into DOM elements via a template language of some sort. Many use these frameworks to birth an empty page, which is then filled exclusively with elements created through this JSON-to-template rendering.
@@ -67,7 +66,6 @@ Stimulus also differs on the question of state. Most frameworks have ways of mai
 It really is a remarkably different paradigm. One that I’m sure many veteran JavaScript developers who’ve been used to work with contemporary frameworks will scoff at. And hey, scoff away. If you’re happy with the complexity and effort it takes to maintain an application within the maelstrom of, say, React + Redux, then Turbo + Stimulus will not appeal to you.
 
 If, on the other hand, you have nagging sense that what you’re working on does not warrant the intense complexity and application separation such contemporary techniques imply, then you’re likely to find refuge in our approach.
-
 
 ### Stimulus and related ideas were extracted from the wild
 

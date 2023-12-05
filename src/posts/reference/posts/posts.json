@@ -1,4 +1,4 @@
 {
   "layout": "layouts/post.html",
-  "permalink": "/reference/{{ permalink }}"
+  "permalink": "/Reference/{{ permalink }}"
 }

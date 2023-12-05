@@ -1,24 +1,24 @@
 ---
 eleventyComputed:
-    title: "{{ page.filePathStem.split('/')[4].split('_')[1] }}"
-    eleventyNavigation:
-        key: "{{ title }}"
-        order: "{{ order }}"
-        parent: "{{ page.filePathStem.split('/')[2].replace(page.filePathStem.split('/')[2][0],page.filePathStem.split('/')[2][0].toUpperCase()) }}"
+  title: "{{ page.filePathStem.split('/')[4].split('_')[1] }}"
+  eleventyNavigation:
+    key: '{{ title }}'
+    order: '{{ order }}'
+    parent: "{{ page.filePathStem.split('/')[2].replace(page.filePathStem.split('/')[2][0],page.filePathStem.split('/')[2][0].toUpperCase()) }}"
 ---
+
 {% extends "layouts/base.html" %} {% block content %}
 <article class="l-post" data-pagefind-body>
-    {% set posts = collections.all | log %}
-    {% set breadcrumbs = collections.all | eleventyNavigationBreadcrumb(title, {
-    includeSelf: true }) %} {% include "partials/post-heading.html" %} {% if
-    content | toc %}
-    <div class="l-post__toc toc" aria-labelledby="toc-title">
-        <section class="toc" aria-labelledby="toc-title">
-            <h3 class="toc__title" id="toc-title">On this page</h3>
-            <nav class="toc__navigation">{{ content | toc | safe }}</nav>
-        </section>
-    </div>
-    {% endif %}
-    <div class="l-post__content post-content">{{ content | safe }}</div>
+  {# {% set posts = collections.all | log %} #} {% set breadcrumbs =
+  collections.all | eleventyNavigationBreadcrumb(title, { includeSelf: true })
+  %} {% include "partials/post-heading.html" %} {% if content | toc %}
+  <div class="l-post__toc toc" aria-labelledby="toc-title">
+    <section class="toc" aria-labelledby="toc-title">
+      <h3 class="toc__title" id="toc-title">On this page</h3>
+      <nav class="toc__navigation">{{ content | toc | safe }}</nav>
+    </section>
+  </div>
+  {% endif %}
+  <div class="l-post__content post-content">{{ content | safe }}</div>
 </article>
 {% include "partials/post-navigation.html" %} {% endblock %}

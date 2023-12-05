@@ -14,10 +14,10 @@ const diffCommit = () => {
       return;
     }
     execSync(
-      'git diff newDoc remotes/targetdoc/main -- docs > ./server/test.patch',
+      'git diff newDoc remotes/targetdoc/main -- docs > ./server/diff.patch',
       config,
     );
-    execSync('git apply ./server/test.patch', config);
+    execSync('git apply ./server/diff.patch', config);
     execSync('git add ./docs', config);
     execSync('git commit -m "Update docs"', config);
     execSync('git push', config);
