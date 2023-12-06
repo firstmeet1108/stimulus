@@ -174,4 +174,4 @@ $RECYCLE.BIN/
 *.lnk
 
 config.js
-./server/diff.patch
+server/diff.patch
