@@ -33,6 +33,7 @@ app.use(bodyParser());
 router.post('/', async (ctx) => {
   const pushData = ctx.request.body;
   const detail = JSON.parse(pushData.payload);
+  console.log('detail');
   console.log(detail);
   const updateFiles = detail.head_commit.modified;
   const checkUrl = detail.head_commit.url;
