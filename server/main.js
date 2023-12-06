@@ -1,5 +1,4 @@
 const { execSync } = require('child_process');
-const translater = require('./openai-test');
 
 const config = {
   cwd: '../',
@@ -10,7 +9,6 @@ const diffCommit = () => {
       'git diff newDoc remotes/targetdoc/main -- docs',
       config,
     ).toString();
-    const originFile = patchStr.split('+++ b/docs/')[1].split('\n')[0];
     if (!patchStr) {
       console.log('无更新');
       return;
@@ -20,8 +18,6 @@ const diffCommit = () => {
       config,
     );
     execSync('git apply ./server/diff.patch', config);
-    translater(`../docs/${originFile}`);
-
     execSync('git add ./docs', config);
     execSync('git commit -m "Update docs"', config);
     execSync('git push', config);

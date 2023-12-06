@@ -3,8 +3,14 @@ const cors = require('@koa/cors');
 const Router = require('koa-router');
 const bodyParser = require('koa-bodyparser');
 const nodemailer = require('nodemailer');
+const schedule = require('node-schedule');
 const config = require('../config');
 const { diffCommit } = require('./main');
+
+const job = schedule.scheduleJob('0 0 4 * * *', () => {
+  console.log(new Date());
+  diffCommit();
+});
 
 // 创建 koa 实例
 const app = new Koa();
