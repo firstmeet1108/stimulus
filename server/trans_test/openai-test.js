@@ -15,7 +15,7 @@ module.exports = (inputFile) => {
   // console.log(OPENAI_API_KEY);
   // API 请求参数
   const markdownContent = fs.readFileSync(inputFile, 'utf8');
-  const markdownFile = inputFile;
+  const markdownFile = inputFile.split('.')[0];
   const { data, content } = matter(markdownContent);
 
   const messages = [
@@ -39,11 +39,7 @@ order: ${data.order || ''}
 ---
 
 ${translatedContent}`;
-      fs.writeFileSync(
-        `translated_${markdownFile}`,
-        newMarkdownContent,
-        'utf8',
-      );
+      fs.writeFileSync(`${markdownFile}_CN.md`, newMarkdownContent, 'utf8');
     })
     .catch((error) => console.error('Error:', error));
 };
