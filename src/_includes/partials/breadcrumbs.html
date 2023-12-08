@@ -1,14 +1,15 @@
 <ol class="breadcrumb-list post-heading__breadcrumb">
-    <li>
-        <a href="/">Home</a>
-    </li>
-    {%- for entry in breadcrumbs %}
-        <li>
-            {% if entry.url == page.url %}
-                <span aria-current="page">{{ entry.title }}</span>
-            {% else %}
-                <a href="{{ entry.url }}">{{ entry.title }}</a>
-            {% endif %}
-        </li>
-    {%- endfor %}
+  <li>
+    <a href="/">Home</a>
+  </li>
+  {%- for entry in breadcrumbs %} {% set banURL =
+  [page.url,'/handbook/','/reference/'] %}
+  <li>
+    {% if entry.url in banURL %}
+    <span aria-current="page">{{ entry.title }}</span>
+    {% else %}
+    <a href="{{ entry.url }}">{{ entry.title }}</a>
+    {% endif %}
+  </li>
+  {%- endfor %}
 </ol>

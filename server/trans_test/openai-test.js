@@ -2,7 +2,7 @@ const OpenAI = require('openai');
 
 const fs = require('fs');
 const matter = require('gray-matter');
-const { OPENAI_API_KEY } = require('../config');
+const { OPENAI_API_KEY } = require('../../config');
 
 const openai = new OpenAI({
   // eslint-disable-next-line no-undef

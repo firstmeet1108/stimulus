@@ -1,13 +1,11 @@
 {
-  "authorEmail": "hello@conedevelopment.com",
-  "authorName": "Cone",
-  "copyright": "Some rights reserved.",
+  "authorEmail": "2022742378@qq.com",
+  "authorName": "firstmeet",
+  "copyright": "Copyright",
   "name": "Stimulus: 一个适用于你已有的 HTML 的简洁 JavaScript 框架。",
   "slogen": "An Eleventy theme for documentation sites",
   "social": {
-    "twitter": "https://twitter.com/conedevelopment",
-    "github": "https://github.com/conedevelopment/sprucecss-eleventy-documentation-template",
-    "discord": ""
+    "github": "https://github.com/travelless/stimulus"
   },
   "url": "https://eleventy-documentation.sprucecss.com"
 }

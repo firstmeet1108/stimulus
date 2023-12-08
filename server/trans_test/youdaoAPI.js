@@ -11,7 +11,7 @@ const fs = require('fs');
 const matter = require('gray-matter');
 
 const url = 'https://openapi.youdao.com/api';
-const key = 'AhoYbUiuaM0RPKklDFj9maZjZ2KYVzmo';
+const key = '';
 const date = new Date();
 
 const markdownContent = fs.readFileSync(
