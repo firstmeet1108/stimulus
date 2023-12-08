@@ -55,7 +55,7 @@ module.exports = (config) => {
   config.setLibrary('md', markdownLib);
 
   config.on('eleventy.after', () => {
-    execSync(`npx pagefind --source dist --glob \"**/*.html\"`, {
+    execSync(`npx pagefind --site dist --output-subdir _pagefind --glob \"**/*.html\"`, {
       encoding: 'utf-8',
     });
   });
