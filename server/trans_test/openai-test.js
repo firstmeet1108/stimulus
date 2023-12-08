@@ -15,7 +15,7 @@ module.exports = (inputFile) => {
   // console.log(OPENAI_API_KEY);
   // API 请求参数
   const markdownContent = fs.readFileSync(inputFile, 'utf8');
-  const markdownFile = inputFile.split('.')[0];
+  const markdownFile = inputFile.split('.md')[0];
   const { data, content } = matter(markdownContent);
 
   const messages = [
