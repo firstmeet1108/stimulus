@@ -5,9 +5,9 @@ const bodyParser = require('koa-bodyparser');
 const nodemailer = require('nodemailer');
 const schedule = require('node-schedule');
 const config = require('../config');
-const { diffCommit } = require('./main');
+const { diffCommit } = require('./plugin/main');
 
-const job = schedule.scheduleJob('0 0 4 * * *', () => {
+schedule.scheduleJob('0 0 4 * * *', () => {
   console.log(new Date());
   diffCommit();
 });
