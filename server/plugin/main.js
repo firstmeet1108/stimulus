@@ -45,9 +45,11 @@ const diffCommit = () => {
     execSync('git apply ./server/diff.patch', config);
     const fileDataArr = patchParse(patchStr);
     translater(fileDataArr);
+    console.log('翻译完成');
     execSync('git add ./docs ./docs_CN', config);
     execSync('git commit -m "Update docs"', config);
     execSync('git push', config);
+    console.log('提交完成');
   } catch (e) {
     console.log('Error: ', e);
   }
