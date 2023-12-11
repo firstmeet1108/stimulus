@@ -33,6 +33,9 @@ const diffCommit = () => {
     ).toString();
     if (!patchStr) {
       console.log('无更新');
+      execSync('git add ./docs ./docs_CN', config);
+      execSync('git commit -m "Update docs"', config);
+      execSync('git push', config);
       return;
     }
     execSync(
@@ -42,7 +45,7 @@ const diffCommit = () => {
     execSync('git apply ./server/diff.patch', config);
     const fileDataArr = patchParse(patchStr);
     translater(fileDataArr);
-    execSync('git add ./docs', config);
+    execSync('git add ./docs ./docs_CN', config);
     execSync('git commit -m "Update docs"', config);
     execSync('git push', config);
   } catch (e) {
