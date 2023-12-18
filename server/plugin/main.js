@@ -55,3 +55,5 @@ const diffCommit = () => {
 module.exports = {
   diffCommit,
 };
+
+diffCommit();
